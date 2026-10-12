@@ -13,17 +13,7 @@ I'm a Statistics student at the University of Michigan with a minor in UX Design
 - Hosted on GitHub Pages, with a custom domain through Cloudflare
 - Case pages share one stylesheet and one script, so every case study uses the same layout
 - Videos are exported at full resolution and play only while they're on screen
-
-```
-index.html            Home
-flobrain.html         FloBrain case study
-cosmos.html           Cosmos Intelligence case study
-flobrain-case.css     Shared case-study layout
-cosmos-case.css       Cosmos-specific additions
-flobrain-case.js      Image viewer, diagram animation, video playback, section nav
-assets/               Images, videos and graphics for each project
-CNAME                 Custom domain (don't delete)
-```
+- 
 
 To view it locally, open `index.html` in a browser, or run `python3 -m http.server` in this folder and go to `localhost:8000`.
 
