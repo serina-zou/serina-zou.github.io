@@ -13,7 +13,7 @@ I'm a Statistics student at the University of Michigan with a minor in UX Design
 - Hosted on GitHub Pages, with a custom domain through Cloudflare
 - Case pages share one stylesheet and one script, so every case study uses the same layout
 - Videos are exported at full resolution and play only while they're on screen
-- 
+  
 
 To view it locally, open `index.html` in a browser, or run `python3 -m http.server` in this folder and go to `localhost:8000`.
 
