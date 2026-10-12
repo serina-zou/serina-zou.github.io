@@ -1,0 +1,49 @@
+/* FloBrain · Sticky scrollytelling (People / Schedule / Outline)
+   Text steps scroll on the left; the panel screenshot stays pinned on the right and swaps per step.
+   Uses your page variables when present (--case-accent, --case-line), with fallbacks. */
+.fb-sty{
+  --sty-accent:var(--case-accent,#7661e9);
+  --sty-line:var(--case-line,#e3e1e8);
+  --sty-muted:#77717f;
+  --sty-ease:cubic-bezier(.16,1,.3,1);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,330px);
+  gap:40px;
+  margin:28px 0;
+}
+.fb-sty__steps{display:grid;grid-column:1;grid-row:1}
+.fb-sty__step{
+  min-height:72vh;
+  display:grid; align-content:center; gap:8px;
+  opacity:.3; transition:opacity .35s ease;
+}
+.fb-sty__step.is-active{opacity:1}
+.fb-sty__label{font-family:var(--case-mono);font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:#817a8c}
+.fb-sty__title{font-size:22px; font-weight:500; letter-spacing:-.02em; line-height:1.25; margin:0}
+.fb-sty__text{font-size:16px; line-height:1.7; color:#504b59; margin:0}
+
+.fb-sty__pin{position:sticky; top:var(--sty-pin-top,100px); align-self:start;grid-column:2;grid-row:1;width:min(100%,330px,calc((100svh - 180px)*.6631));justify-self:center}
+.fb-sty__frame{
+  position:relative; aspect-ratio:744/1122; border-radius:14px; overflow:hidden; background:#fff;
+  box-shadow:0 0 0 1px #e6e2ef, 0 24px 50px -28px #2a1f6a66;
+}
+.fb-sty__frame img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top;
+  opacity:0; transform:scale(1.02);
+  transition:opacity .45s ease, transform .6s var(--sty-ease);
+}
+.fb-sty__frame img.is-active{opacity:1; transform:none}
+.fb-sty__dots{display:flex; gap:6px; justify-content:center; margin-top:12px}
+.fb-sty__dots i{width:6px; height:6px; border-radius:50%; background:var(--sty-line); transition:background .2s, width .2s}
+.fb-sty__dots i.is-active{background:var(--sty-accent); width:18px; border-radius:3px}
+
+/* Phone: screenshot pins at the top, steps scroll underneath */
+@media (max-width:700px){
+  .fb-sty{display:block}
+  .fb-sty__pin{top:var(--sty-pin-top,76px);width:100%;margin:0 auto;background:#fafafa;padding:12px 0;z-index:2}
+  .fb-sty__frame{width:min(240px,70%,max(140px,calc((100svh - 330px)*.6631)));margin-inline:auto}
+  .fb-sty__step{min-height:60vh}
+}
+@media (prefers-reduced-motion:reduce){
+  .fb-sty__step,.fb-sty__frame img,.fb-sty__dots i{transition:none}
+}

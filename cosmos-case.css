@@ -1,0 +1,33 @@
+/* Cosmos visuals are placeholders; type, layout and components inherit FloBrain. */
+.cosmos-placeholder{width:100%;aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;background:#f0f4f6;border-radius:12px;text-align:center;color:#73818a}
+.cosmos-placeholder-kind{font:500 10px/1.5 var(--case-mono);letter-spacing:.08em;text-transform:uppercase}
+.cosmos-placeholder-title{font:400 15px/1.5 var(--case-sans);color:#61717b}
+.cosmos-placeholder--deck{aspect-ratio:2872/901}
+.cosmos-placeholder--tall{aspect-ratio:auto;height:min(620px,72svh)}
+.cosmos-placeholder--diagram{aspect-ratio:2/1}
+.cosmos-placeholder--pipeline{aspect-ratio:4/1}
+.cosmos-placeholder--phone{aspect-ratio:9/19.5;max-width:300px;margin-inline:auto}
+.cosmos-case .pair>*{min-width:0}
+@media(max-width:600px){.cosmos-placeholder{padding:18px;gap:6px;min-height:130px}.cosmos-placeholder--tall{height:60svh}.cosmos-placeholder--phone{min-height:0}.cosmos-placeholder-title{font-size:13px}}
+
+.cosmos-case .decrypt-word{display:inline-block;white-space:nowrap}
+@media(max-width:380px){.cosmos-case .case-hero h1{font-size:clamp(48px,16.4vw,64px)}}
+
+/* Cosmos uses sky blue while retaining the shared case-study components. */
+.cosmos-case{--case-accent:#38a9e8;--case-line:#e1e7eb}
+.cosmos-case .story-nav a:hover,.cosmos-case .story-nav a[aria-current=true]{color:#187daf}
+.cosmos-case .story-section .rule{background:#eaf6fd}
+.cosmos-case .case-hero .cta:hover,.cosmos-case .case-end .back-to-top:hover{background:#167eb5}
+
+/* Preserve the original long homepage in a bounded, keyboard-scrollable viewport. */
+.cosmos-scroll-preview{position:relative}
+.cosmos-case .scroll-window{height:min(620px,72svh);overflow-y:auto;border-radius:12px;background:#060b14;overscroll-behavior-y:contain;scrollbar-width:thin;scrollbar-color:#66859a #13212e}
+.cosmos-case .scroll-window img{display:block;width:100%;height:auto;border-radius:0}
+.cosmos-case .scroll-window:focus-visible{outline:2px solid var(--case-accent);outline-offset:4px}
+.cosmos-case .scroll-hint{position:absolute;bottom:14px;right:18px;font:400 11px/1.5 var(--case-sans);padding:8px 12px;border-radius:999px;background:#fafafa;color:#425b6b;box-shadow:0 2px 8px #0002;pointer-events:none}
+@media(max-width:600px){.cosmos-case .scroll-window{height:60svh}}
+
+.cosmos-case .cosmos-mobile-showcase .pair{max-width:624px;margin-inline:auto;align-items:start}
+.cosmos-case .cosmos-mobile-showcase .image-expand,.cosmos-case .cosmos-mobile-showcase video{max-width:300px;margin-inline:auto}
+.cosmos-case .cosmos-mobile-showcase .lbl,.cosmos-case .cosmos-mobile-showcase figcaption{text-align:center}
+.cosmos-case .pair .cosmos-placeholder--desktop{aspect-ratio:2940/1592}

@@ -1,0 +1,6 @@
+.decrypted-title{display:inline-block;white-space:pre-wrap}
+.decrypt-cell{position:relative;display:inline-block;vertical-align:baseline}
+.decrypt-measure{visibility:hidden}
+.decrypt-ink{position:absolute;inset:0;text-align:center;white-space:pre;opacity:1;font-weight:inherit;transform:none}
+.decrypt-ink.encrypted{color:inherit;font-size:inherit;line-height:inherit;opacity:1}
+@media(prefers-reduced-motion:reduce){.decrypt-ink.encrypted{color:inherit;font-size:inherit}}
