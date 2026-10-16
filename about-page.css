@@ -1,0 +1,29 @@
+/* About Me: tilted photographs beside the biography. */
+.about{width:min(1160px,88vw);margin:0 auto;padding:64px 0 100px;display:grid;grid-template-columns:minmax(240px,350px) minmax(0,1fr);column-gap:clamp(48px,7vw,100px);row-gap:48px;align-content:start;align-items:start}
+.about h2{grid-column:1/-1}
+.about-photos{position:relative;padding:12px 16px 16px;isolation:isolate}
+.about-photo{position:relative;width:74%;max-width:240px;margin:0;transform:rotate(var(--photo-tilt));transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s ease;box-shadow:0 9px 24px #0002;border-radius:8px;background:#eee}
+.about-photo img{display:block;width:100%;height:auto;border-radius:inherit}
+.about-photo--portrait{--photo-tilt:-6deg;z-index:2}
+.about-photo--lemon{--photo-tilt:7deg;margin:-56px 0 0 auto;z-index:1}
+.about-photo:focus-visible{outline:2px solid #777;outline-offset:5px;transform:rotate(var(--photo-tilt)) scale(1.07);z-index:3}
+@media(hover:hover){.about-photo:hover{transform:rotate(var(--photo-tilt)) scale(1.07);box-shadow:0 16px 34px #0003;z-index:3}}
+.about .about-bio{padding-top:10px}
+.about .about-bio p{font-size:clamp(18px,1.65vw,22px);line-height:1.65;letter-spacing:-.015em;max-width:none;margin:0 0 25px}
+.about .contact{margin-top:32px;flex-wrap:wrap}
+@media(max-width:750px){
+ .about{padding-top:42px;grid-template-columns:1fr;gap:36px}
+ .about-photos{width:min(330px,100%);justify-self:center}
+ .about .about-bio{padding-top:0}
+ .about .about-bio p{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){.about-photo{transition:none}}
+
+.about-photo figcaption{position:absolute;top:100%;left:0;width:100%;padding-top:12px;text-align:center;font-size:13px;line-height:1.5;color:#666}
+.about-photos{padding-bottom:48px}
+
+/* Center the biography beside the photo stack and use the case-study reveal. */
+.about .about-bio{align-self:center}
+.about-bio .about-reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .75s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--reveal-index,0) * .12s)}
+.about-bio .about-reveal.is-revealed{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.about-bio .about-reveal{opacity:1;transform:none;transition:none}}

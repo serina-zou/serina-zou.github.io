@@ -35,7 +35,7 @@ const signed = value => (value > 0 ? `+${value}` : value < 0 ? `−${-value}` : 
 function mountTechText(){
 const containerRef={current:document.querySelector(".tech-text")};
 const canvasRef={current:document.querySelector(".tech-text-canvas")};
-const settingsRef={current:{text:'SERINA ZOU',fontFamily:'',fontWeight:600,fontSize:150,reveal:'letter',dashLength:4,dashGap:2,specks:15,color:'#ffffff',accentColor:'#ffffff',letterSpacing:-0.015,reach:200,softness:0.7,strokeWidth:1.5,speed:1,lineStyle:'dashed',selection:true,labels:true,draggable:true,sweep:true}};
+const settingsRef={current:{text:'SERINA ZOU',fontFamily:'',fontWeight:600,fontSize:260,reveal:'letter',dashLength:4,dashGap:2,specks:15,color:'#ffffff',accentColor:'#ffffff',letterSpacing:0.025,reach:200,softness:0.7,strokeWidth:1.5,speed:1,lineStyle:'dashed',selection:true,labels:true,draggable:true,sweep:true}};
 const wakeRef={current:()=>{}};
     const container = containerRef.current;
     const canvas = canvasRef.current;
@@ -192,6 +192,12 @@ const wakeRef={current:()=>{}};
           dashes: sprite(s, next, base, true)
         });
       });
+      // Align the lower home content to the visible ink of the first letter.
+      const home = container.closest('.home-page main');
+      if (home && glyphs.length) {
+        const inset = container.getBoundingClientRect().left - home.getBoundingClientRect().left + glyphs[0].box.x1;
+        home.style.setProperty('--home-ink-inset', `${inset}px`);
+      }
       dragging = -1;
       frame.index = -1;
       return next;

@@ -2,7 +2,7 @@
   const dialog = document.querySelector('.image-dialog');
   const enlarged = dialog.querySelector('img');
   document.querySelectorAll('.image-expand').forEach(button => button.addEventListener('click', () => {
-    const original = button.querySelector('img, .case-graphic');
+    const original = button.querySelector('img.is-active') || button.querySelector('img, .case-graphic');
     const source = original.dataset.source || original.src;
     enlarged.src = source;
     enlarged.alt = original.dataset.alt || original.alt;

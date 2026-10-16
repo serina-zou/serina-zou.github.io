@@ -31,3 +31,18 @@
 .cosmos-case .cosmos-mobile-showcase .image-expand,.cosmos-case .cosmos-mobile-showcase video{max-width:300px;margin-inline:auto}
 .cosmos-case .cosmos-mobile-showcase .lbl,.cosmos-case .cosmos-mobile-showcase figcaption{text-align:center}
 .cosmos-case .pair .cosmos-placeholder--desktop{aspect-ratio:2940/1592}
+
+/* The same pinned image sequence as FloBrain, sized for desktop screenshots. */
+.cosmos-page-story{grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:32px}
+.cosmos-page-story .fb-sty__pin{width:100%;max-width:none}
+.cosmos-page-story .fb-sty__frame{width:100%;aspect-ratio:2940/1592;background:#060b14;box-shadow:0 0 0 1px var(--case-line),0 24px 50px -28px #142b3d44}
+.cosmos-page-story .fb-sty__frame img{height:100%;object-fit:contain;transform:none;border-radius:0}
+.cosmos-page-story .image-expand-hint{z-index:1}
+@media(max-width:700px){
+ .cosmos-page-story .fb-sty__pin{padding:12px 0}
+ .cosmos-page-story .fb-sty__frame{width:min(100%,calc((100svh - 330px)*1.8467));min-width:180px}
+}
+
+/* Sequential line highlighting inherits FloBrain's measured line timing. */
+.cosmos-case .highlight-sweep{font-weight:700;color:inherit}
+.cosmos-case .highlight-line{background-image:linear-gradient(transparent 45%,#ccecff 45%,#ccecff 96%,transparent 96%)}

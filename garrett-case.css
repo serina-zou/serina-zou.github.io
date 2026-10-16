@@ -1,0 +1,30 @@
+/* Garrett Comer case: additions on top of flobrain-case.css (same layout, same tokens). */
+
+/* Accent: the athlete site's deep green instead of FloBrain purple */
+.garrett-case{--case-accent:#3f6b3a;--case-line:#e0e6dc}
+.garrett-case .story-nav a:hover,.garrett-case .story-nav a[aria-current=true]{color:#2f5a2b}
+.garrett-case .story-section .rule{background:#eef3ea}
+.garrett-case .case-hero .cta:hover,.garrett-case .case-end .back-to-top:hover{background:#2f5a2b}
+
+/* Phone screenshots: narrow and centered, like the narrow figures in the FloBrain case */
+.garrett-case figure.garrett-phones .pair{max-width:560px;margin:0 auto}
+.garrett-case figure.garrett-phones figcaption{text-align:center}
+
+.garrett-case .pair>*{min-width:0}
+.garrett-case .decrypt-word{display:inline-block;white-space:nowrap}
+@media(max-width:380px){.garrett-case .case-hero h1{font-size:clamp(48px,16.4vw,64px)}}
+
+/* Fit each screenshot to its own proportions; edge labels must stay visible. */
+.garrett-case figure .image-expand{
+  height:auto;aspect-ratio:auto;padding:0;border:0;border-radius:12px;overflow:visible;
+}
+.garrett-case figure img,.garrett-case figure video{
+  display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;
+  object-fit:contain;border-radius:12px;padding:0;border:0;
+}
+.garrett-case .pair{align-items:start}
+
+
+/* The shared script measures wrapped lines and sweeps them in reading order. */
+.garrett-case .highlight-sweep{font-weight:700;color:inherit}
+.garrett-case .highlight-line{background-image:linear-gradient(transparent 45%,#deebd6 45%,#deebd6 96%,transparent 96%)}
